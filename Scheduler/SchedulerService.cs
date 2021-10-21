@@ -8,12 +8,17 @@ using System.Threading.Tasks;
 
 namespace Scheduler
 {
-    class SchedulerService {
+    class SchedulerService : DIDASchedulerService   {
 
         // canal pelo qual os clientes vao comunicar com o scheduler
         private GrpcChannel channel;
 
         public SchedulerService()
+        {
+
+        }
+
+        public void receiveClientRequest(clientRequest request)
         {
 
         }

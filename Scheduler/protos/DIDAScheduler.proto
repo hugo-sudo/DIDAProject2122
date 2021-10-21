@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+service DIDASchedulerService {
+  rpc receiveClientRequest(clientSendRequest) returns ();
+}
+
+message clientRequest  {
+  string input = 1;
+  string application_file = 2;	
+}
