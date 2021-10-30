@@ -1,21 +1,26 @@
 ﻿using Grpc.Core;
 using System;
+using System.Collections.Generic;
+using System.Text;
+using Worker;
 
-namespace Scheduler
+namespace LibDIDAWorker
 {
-    class SchedulerMain
+    class WorkerMain
     {
         public static void Main(string[] args)
         {
 
-            //recebe URL do puppetMaster
-            string url = args[0];
-            
-            //separar hostname de porto
-            string[] data = url.Split(':');
-            string hostname = data[0];
-            int port = int.Parse(data[1]);
- 
+            /*  //recebe URL do puppetMaster
+              string url = args[0];
+
+              //separar hostname de porto
+              string[] data = url.Split(':');
+              string hostname = data[0];
+              int port = int.Parse(data[1]);*/
+            const int port = 1100;
+            const string hostname = "localhost";
+
             string startupMessage;
             ServerPort serverPort;
 
@@ -23,13 +28,13 @@ namespace Scheduler
             startupMessage = "Insecure ChatServer server listening on port " + port;
 
 
-            Server schedulerServer = new Server
+            Server workerServer = new Server
             {
-                Services = { DIDASchedulerService.BindService(new SchedulerService()) },
+                Services = { DIDAWorkerService.BindService(new WorkerService()) },
                 Ports = { serverPort }
             };
 
-            schedulerServer.Start();
+            workerServer.Start();
 
             Console.WriteLine(startupMessage);
 

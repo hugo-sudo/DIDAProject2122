@@ -1,7 +1,7 @@
 ﻿syntax = "proto3";
 
-service DIDASchedulerService {
-	rpc receiveClientRequest(DIDARequest) returns (msgResponse);
+service DIDAWorkerService {
+	rpc receiveRequest(DIDARequest) returns(msgResponse);
 }
 
 message DIDAMetaRecord {
@@ -33,5 +33,3 @@ message DIDAOperator {
 	string classname = 1;
 	int32 seq_no = 2;
 }
-
-
