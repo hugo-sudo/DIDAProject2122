@@ -1,37 +1,36 @@
-﻿using Grpc.Core;
+﻿using DIDAWorker;
+using Grpc.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Worker;
 
 namespace LibDIDAWorker
 {
-    class WorkerMain
+    class WorkerMainEX
     {
         public static void Main(string[] args)
         {
 
-            //recebe URL do puppetMaster
-            string url = args[1];
+            /*  //recebe URL do puppetMaster
+              string url = args[0];
 
-            //separar hostname de porto
-            string[] data = url.Split(':');
-            string hostname = data[0];
-            int port = int.Parse(data[1]);
-
-            //recebe server_id do puppetMaster
-            string server_id = args[0];
+              //separar hostname de porto
+              string[] data = url.Split(':');
+              string hostname = data[0];
+              int port = int.Parse(data[1]);*/
+            const int port = 1001;
+            const string hostname = "localhost";
 
             string startupMessage;
             ServerPort serverPort;
 
             serverPort = new ServerPort(hostname, port, ServerCredentials.Insecure);
-            startupMessage = "Insecure " + server_id + " server listening on port " + port;
+            startupMessage = "Insecure ChatServer server listening on port " + port;
 
 
             Server workerServer = new Server
             {
-                Services = { DIDAWorkerService.BindService(new WorkerService(server_id)) },
+                Services = { DIDAWorkerService.BindService(new WorkerService()) },
                 Ports = { serverPort }
             };
 

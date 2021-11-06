@@ -15,30 +15,34 @@ namespace PuppetMaster
 {
     public partial class Form1 : Form
     {
+        private Dictionary<string, string> workers_servers;
         private string schedulerUrl;
         public Form1()
         {
             InitializeComponent();
+            workers_servers = new Dictionary<string, string>();
             schedulerUrl = "";
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+     
         // funcao para lançar Scheduler
         private void button1_Click(object sender, EventArgs e)
         {
             Process scheduler = new Process();
-            scheduler.StartInfo.FileName = @"C:\Users\tomas\OneDrive\Área de Trabalho\Técnico\Semestre1\DAD\Projeto\DIDAProject2122\Scheduler\bin\Debug\netcoreapp3.1\Scheduler.exe";
-            scheduler.StartInfo.Arguments = textBox2.Text;
+            scheduler.StartInfo.FileName = "../../../../Scheduler/bin/Debug/netcoreapp3.1/Scheduler.exe";
             schedulerUrl = textBox2.Text;
+
+            string args = textBox2.Text + " " + textBox7.Text;
+
+            foreach (var item in workers_servers)
+            {
+                args += " " + item.Key + "|" + item.Value;
+            }
+
+            
+            scheduler.StartInfo.Arguments = args;
+
+            
             scheduler.Start();
             
         }
@@ -59,10 +63,20 @@ namespace PuppetMaster
 
         }
 
+
         // funcao para lançar Worker
         private void button3_Click(object sender, EventArgs e)
         {
+            Process worker = new Process();
+            worker.StartInfo.FileName = "../../../../Worker/bin/Debug/netcoreapp3.1/Worker.exe";
+            worker.StartInfo.Arguments = textBox1.Text + " " + textBox5.Text + " " + textBox6.Text;
 
+            workers_servers.Add(textBox1.Text, textBox5.Text);
+
+            worker.Start();
         }
+
+        
+       
     }
 }

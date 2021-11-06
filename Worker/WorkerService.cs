@@ -8,8 +8,12 @@ namespace Worker
 	public class WorkerService : DIDAWorkerService.DIDAWorkerServiceBase
 	{
 
-		public WorkerService()
-		{ 
+		private string server_id;
+
+		public WorkerService(string server_id)
+		{
+			this.server_id = server_id;
+			Console.WriteLine(this.server_id);
 		}
 
 		//TO-DO

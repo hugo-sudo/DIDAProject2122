@@ -48,6 +48,10 @@ namespace PuppetMaster
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -58,7 +62,6 @@ namespace PuppetMaster
             this.label1.Size = new System.Drawing.Size(101, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "PuppetMaster";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // scheduler
             // 
@@ -71,7 +74,7 @@ namespace PuppetMaster
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(202, 77);
+            this.button1.Location = new System.Drawing.Point(317, 79);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 24);
             this.button1.TabIndex = 2;
@@ -81,7 +84,7 @@ namespace PuppetMaster
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(87, 76);
+            this.textBox2.Location = new System.Drawing.Point(202, 79);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(109, 27);
             this.textBox2.TabIndex = 4;
@@ -89,7 +92,7 @@ namespace PuppetMaster
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(126, 53);
+            this.label3.Location = new System.Drawing.Point(238, 56);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 20);
             this.label3.TabIndex = 6;
@@ -213,11 +216,48 @@ namespace PuppetMaster
             this.label9.TabIndex = 20;
             this.label9.Text = "server_id";
             // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(87, 78);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(109, 27);
+            this.textBox7.TabIndex = 21;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(105, 55);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(67, 20);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "server_id";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(544, 52);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(268, 426);
+            this.textBox8.TabIndex = 23;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(647, 29);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(62, 20);
+            this.label11.TabIndex = 24;
+            this.label11.Text = "Console";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 490);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -265,6 +305,10 @@ namespace PuppetMaster
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label11;
     }
 }
 

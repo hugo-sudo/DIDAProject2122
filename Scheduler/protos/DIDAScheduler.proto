@@ -1,17 +1,13 @@
 ﻿syntax = "proto3";
 
 service DIDASchedulerService {
+	
 	rpc receiveClientRequest(DIDARequest) returns (msgResponse);
 }
 
 message DIDAMetaRecord {
 	int32 id = 1;
 }
-
-message msgResponse {
-	string ret = 1;
-}
-
 
 message DIDAAssignment {
 	DIDAOperator operator = 1;
@@ -33,5 +29,10 @@ message DIDAOperator {
 	string classname = 1;
 	int32 seq_no = 2;
 }
+
+message msgResponse {
+	string ret = 1;
+}
+
 
 

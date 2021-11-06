@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using DIDAWorker;
-using LibDIDAWorker.Structs;
+using Structs;
 
 namespace LibDIDAWorker.Interfaces
 {

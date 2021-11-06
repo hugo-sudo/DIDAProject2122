@@ -11,11 +11,16 @@ namespace Scheduler
 {
     class SchedulerService : DIDASchedulerService.DIDASchedulerServiceBase   {
 
-        private List<string> workersURL; 
+        private string server_id;
+        private Dictionary<string, string> workersServers;
 
 
-        public SchedulerService()
+
+        public SchedulerService(string server_id,Dictionary<string,string> workersServers)
         {
+            this.server_id = server_id;
+            this.workersServers = workersServers;
+
         }
 
          public override Task<msgResponse> receiveClientRequest(DIDARequest request, ServerCallContext context)
@@ -36,34 +41,30 @@ namespace Scheduler
 
         }
 
- 
+         
+
+
         /*
         ler do script as operacoes
         criar um DIDAAssignment para cada operacao e associar um worker
         retornar um DIDA-Request com a lista de DIDAAssignments
         */
-       /* public DIDARequest createAssignments(DIDARequest request,string input,string app_file)
-        {
-            string[] lines = System.IO.File.ReadAllLines(app_file);
+        public DIDARequest createAssignments(DIDARequest request,string input,string app_file)
+         {
+             
 
-            for (int i = 0; i< workers.Count; i++)
-            {
-                string operation = lines[i];
-                DIDAAssignment assignment = new DIDAAssignment();
-                assignment.host = workers[i];
-                assignment.port = 2;
-                assignment.op =
-            }
 
-            return new DIDARequest();
-            
-        }
+           
 
-        private void sendToWorker(DIDARequest dIDARequest)
-        {
-            throw new NotImplementedException();
-        }
-       */
+             return new DIDARequest();
+
+         }
+
+         private void sendToWorker(DIDARequest dIDARequest)
+         {
+             throw new NotImplementedException();
+         }
+        
 
 
 

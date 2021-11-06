@@ -1,10 +1,22 @@
-﻿using LibDIDAWorker.Structs;
+﻿using Structs;
 using System;
 
 namespace DIDAWorker {
 
-	public enum OperationType { ReadOp, WriteOp, UpdateIfOp};
+	public class WorkerService : DIDAWorkerService.DIDAWorkerServiceBase
+	{
+
+		public WorkerService()
+        {
+        }
+	
+	}
+
+	public enum OperationType { ReadOp, WriteOp, UpdateIfOp };
 
 	public delegate DIDAStorageNode delLocateStorageId(string id, OperationType type);
+
+
+
 
 }
