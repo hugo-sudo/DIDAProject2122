@@ -1,21 +1,26 @@
 ﻿syntax = "proto3";
 
-service DIDASchedulerService {
-	rpc receiveClientRequest(RecvDIDARequest) returns (msgResponse);
+service DIDAStorageService {
+	//rpc receiveRequest(DIDARequest) returns(msgResponse);
 }
 
-message RecvDIDAMetaRecord {
+message DIDAMetaRecord {
 	int32 id = 1;
 }
 
-message RecvDIDAAssignment {
+message msgResponse {
+	string ret = 1;
+}
+
+
+message DIDAAssignment {
 	DIDAOperator operator = 1;
 	string host = 2;
 	int32 port = 3;
 	string output = 4;
 }
 
-message RecvDIDARequest {
+message DIDARequest {
 	string application_file = 1;
 	DIDAMetaRecord meta = 2;
 	string input = 3;
@@ -24,14 +29,7 @@ message RecvDIDARequest {
 	repeated DIDAAssignment chain = 6;
 }
 
-message RecvDIDAOperator {
+message DIDAOperator {
 	string classname = 1;
 	int32 seq_no = 2;
 }
-
-message msgResponse {
-	string ret = 1;
-}
-
-
-

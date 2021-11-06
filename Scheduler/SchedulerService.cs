@@ -23,16 +23,22 @@ namespace Scheduler
 
         }
 
-         public override Task<msgResponse> receiveClientRequest(DIDARequest request, ServerCallContext context)
+         public override Task<msgResponse> receiveClientRequest(RecvDIDARequest request, ServerCallContext context)
         {
+            
+            // adiciona o array de DIDAAssignemnt e o seu tamanho
+            request = createAssignments(request.);
 
-            Console.WriteLine("input recebido:");
-            Console.WriteLine(request.Input);
+            //cria DIDAMetaRecord
+            request.Meta = new DIDAMetaRecord { Id = 0 };
+
+            //adiciona next
+            request.Next = 0;
+
 
             return Task.FromResult(new msgResponse {Ret = request.Input});
 
-            //preencher o DIDARequest para mandar para o primeiro worker
-            //request = createAssignments(request, input, app_file);
+           
 
             //mandar o request preenchido para o primeiro worker
             //sendToWorker(request);
@@ -49,21 +55,46 @@ namespace Scheduler
         criar um DIDAAssignment para cada operacao e associar um worker
         retornar um DIDA-Request com a lista de DIDAAssignments
         */
-        public DIDARequest createAssignments(DIDARequest request,string input,string app_file)
+        public BcastDIDARequest createAssignments(BcastDIDARequest request)
          {
-             
 
+            string[] lines = System.IO.File.ReadAllLines(request.ApplicationFile);
+            int i = 0;
 
-           
+            foreach(string line in lines )
+            {
+                string[] getOP = line.Split(" ");
+                string[] aux =  workersServers.ElementAt(i).Value.Split(":");
+                request.Chain.Add(new DIDAAssignment
+                {
+                    Host = aux[0],
+                    Output = "",
+                    Port = Int32.Parse(aux[1]),
+                    Operator = new DIDAOperator { Classname = getOP[0], SeqNo = Int32.Parse(getOP[2]) }
+                });
+                i++;
+                
+            }
 
-             return new DIDARequest();
+            request.ChainSize = request.Chain.Count;
+
+            return request;
+
+            
 
          }
 
-         private void sendToWorker(DIDARequest dIDARequest)
+         private void sendRequestToWorker(DIDARequest dIDARequest)
          {
-             throw new NotImplementedException();
-         }
+            // setup the client side
+            AppContext.SetSwitch(
+                "System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+            GrpcChannel channel = GrpcChannel.ForAddress("ola");
+
+            var client = new DIDASchedulerClientService.DIDASchedulerClientServiceClient(channel);
+
+            client.requestToWorker(new DIDARequest { Input = textBox4.Text, ApplicationFile = textBox3.Text });
+        }
         
 
 

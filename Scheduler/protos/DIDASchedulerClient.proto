@@ -1,0 +1,15 @@
+﻿syntax = "proto3";
+
+service DIDASchedulerClientService {
+	rpc requestToWorker(BcastDIDARequest) returns (msgResponse);
+}
+
+message BcastDIDARequest {
+	string application_file = 1;
+	DIDAMetaRecord meta = 2;
+	string input = 3;
+	int32 next = 4;
+	int32 chainSize = 5;
+	repeated DIDAAssignment chain = 6;
+}
+

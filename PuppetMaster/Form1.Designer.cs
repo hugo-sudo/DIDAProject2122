@@ -52,6 +52,11 @@ namespace PuppetMaster
             this.label10 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -249,11 +254,56 @@ namespace PuppetMaster
             this.label11.TabIndex = 24;
             this.label11.Text = "Console";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 248);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(59, 20);
+            this.label12.TabIndex = 25;
+            this.label12.Text = "storage";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(63, 248);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(109, 27);
+            this.textBox9.TabIndex = 26;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(178, 247);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(109, 27);
+            this.textBox10.TabIndex = 27;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(293, 245);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(109, 27);
+            this.textBox11.TabIndex = 28;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(408, 248);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(89, 24);
+            this.button4.TabIndex = 29;
+            this.button4.Text = "Execute";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 490);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label10);
@@ -309,6 +359,11 @@ namespace PuppetMaster
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.Button button4;
     }
 }
 

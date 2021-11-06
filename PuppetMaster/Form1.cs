@@ -50,6 +50,7 @@ namespace PuppetMaster
         //funcao para mandar um client request para o Scheduler
         private void button2_Click(object sender, EventArgs e)
         {
+
             // setup the client side
             AppContext.SetSwitch(
                 "System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
@@ -76,7 +77,15 @@ namespace PuppetMaster
             worker.Start();
         }
 
-        
-       
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Process storageNode = new Process();
+            storageNode.StartInfo.FileName = "../../../../Storage/bin/Debug/netcoreapp3.1/Storage.exe";
+            storageNode.StartInfo.Arguments = textBox9.Text + " " + textBox10.Text + " " + textBox11.Text;
+
+            //workers_servers.Add(textBox1.Text, textBox5.Text);
+
+            storageNode.Start();
+        }
     }
 }

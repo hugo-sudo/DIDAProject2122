@@ -19,6 +19,7 @@
 
   <ItemGroup>
 	  <Protobuf Include="protos\DIDAScheduler.proto" GrpcServices="Server" />
+	  <Protobuf Include="protos\DIDASchedulerClient.proto" GrpcServices="Client"/>
   </ItemGroup>
 
 </Project>

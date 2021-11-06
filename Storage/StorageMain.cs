@@ -2,11 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Worker;
 
-namespace Worker
+namespace Storage
 {
-    class WorkerMain
+    class StorageMain
     {
         public static void Main(string[] args)
         {
@@ -26,12 +25,12 @@ namespace Worker
             ServerPort serverPort;
 
             serverPort = new ServerPort(hostname, port, ServerCredentials.Insecure);
-            startupMessage = "Insecure " + server_id + " server listening on port " + port;
+            startupMessage = server_id + " storage server node listening on port " + port;
 
 
             Server workerServer = new Server
             {
-                Services = { DIDAWorkerService.BindService(new WorkerService(server_id)) },
+                Services = { DIDAStorageService.BindService(new StorageService(server_id)) },
                 Ports = { serverPort }
             };
 

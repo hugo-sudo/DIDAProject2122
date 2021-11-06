@@ -1,7 +1,7 @@
 ﻿syntax = "proto3";
 
 service DIDASchedulerService {
-	rpc receiveClientRequest(DIDARequest) returns (msgResponse);
+	rpc receiveClientRequest(BcastDIDARequest) returns (msgResponse);
 }
 
 message DIDAMetaRecord {
@@ -15,7 +15,7 @@ message DIDAAssignment {
 	string output = 4;
 }
 
-message DIDARequest {
+message BcastDIDARequest {
 	string application_file = 1;
 	DIDAMetaRecord meta = 2;
 	string input = 3;
